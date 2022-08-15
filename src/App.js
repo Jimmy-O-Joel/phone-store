@@ -1,7 +1,7 @@
 import './App.css';
 import "bootstrap/dist/css/bootstrap.min.css";
 import React from 'react';
-import {Routes, Route} from "react-router-dom"
+import {Routes, Route, useLocation} from "react-router-dom"
 import Navbar from "./components/Navbar"
 import Details from "./components/Details"
 import Cart from "./components/Cart/Cart"
@@ -17,8 +17,8 @@ function App() {
       <Routes>
         <Route path="/" element={<ProductList/>}/>
         <Route path="/details" element={<Details/>}/>
-        <Route path="/cart" element={<Cart/>}></Route>
-        <Route path="*" element={<Default/>}></Route>
+        <Route path="/cart" element={<Cart />}></Route>
+        <Route path="*" element={<Default location={useLocation()}/>} />
       </Routes>
       <Modal></Modal>
     </React.Fragment>
